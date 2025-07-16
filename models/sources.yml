@@ -1,0 +1,14 @@
+
+version: 2
+
+sources:
+  - name: retail_data # Logical name for group of sources
+    database: RETAIL_PROJECT # Snowflake database name
+    schema: PUBLIC # Schema where raw tables are located
+
+    tables:
+      - name: SHOPIFY_ORDERS
+        identifier: SHOPIFY_ORDERS # Optional, if table name matches
+
+      - name: WALMART 
+        identifier: WALMART # Optional, if table name matches

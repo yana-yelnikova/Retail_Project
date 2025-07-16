@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: shopify_orders_with_full_categories # The name of dbt model
+    description: "Staging model for Shopify orders, including all raw data and an added full category name."
+
+    columns:
+      - name: ORDER_ID
+        description: "Unique identifier for the Shopify order."
+        tests:
+          - unique
+          - not_null
+
+      - name: SKU
+        description: "Stock Keeping Unit (SKU) identifier for the product."
+        tests:
+          - not_null
+
+      - name: PRODUCT_NAME
+        description: "Name of the product."
+
+      - name: CATEGORY
+        description: "Original abbreviated product category code (e.g., 'ELEC', 'SPRT')."
+
+      - name: CHANNEL
+        description: "Sales channel (e.g., 'Online')."
+
+      - name: CUSTOMER_EMAIL
+        description: "Customer's email address."
+
+      - name: ORDER_DATE
+        description: "Date when the order was placed."
+        tests:
+          - not_null
+
+      - name: PRICE
+        description: "Unit price of the product in the order."
+        tests:
+          - not_null
+
+      - name: QUANTITY
+        description: "Quantity of product units in the order."
+        tests:
+          - not_null
+
+
+      - name: WEEK
+        description: "Week number in which the order was placed."
+
+      - name: YEAR
+        description: "Year in which the order was placed."
+
+      - name: full_category_name # New column
+        description: "Full, human-readable name of the product category, derived from the abbreviated code (e.g., 'Electronics', 'Sports')."
+        tests:
+          - not_null # Ensure this column is always populated
+
+      - name: total_item_revenue # Calculated column
+        description: "Total revenue for this specific item in the order (PRICE * QUANTITY)."
+        tests:
+          - not_null
