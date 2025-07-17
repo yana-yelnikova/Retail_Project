@@ -34,9 +34,10 @@ This project utilizes two primary sales datasets:
 2.  **Walmart Sales Data:** Represents in-store transactions.
     * **Original Columns:** `TRANSACTION_ID`, `PRODUCT_ID`, `PRODUCT_NAME`, `CATEGORY`, `CUSTOMER_AGE`, `CUSTOMER_GENDER`, `CUSTOMER_ID`, `CUSTOMER_INCOME`, `CUSTOMER_LOYALTY_LEVEL`, `FORECASTED_DEMAND`, `HOLIDAY_INDICATOR`, `INVENTORY_LEVEL`, `PAYMENT_METHOD`, `PROMOTION_APPLIED`, `PROMOTION_TYPE`, `QUANTITY_SOLD`, `REORDER_POINT`, `REORDER_QUANTITY`, `STOCKOUT_INDICATOR`, `STORE_ID`, `STORE_LOCATION`, `SUPPLIER_ID`, `SUPPLIER_LEAD_TIME`, `TRANSACTION_DATE`, `UNIT_PRICE`, `WEATHER_CONDITIONS`, `WEEKDAY`, `ACTUAL_DEMAND`.
 
-### 📂 Raw Data / Source Files
+### 📂 Raw Data Files (For Reference/Reproducibility)
 
-The raw data files (`.csv` or `.json` if applicable) for both Shopify and Walmart should be placed in a designated directory within the repository, typically `data/` or `seeds/` (if using dbt seeds). This ensures data availability and project reproducibility. **You should add a folder named `data/` in the root of your GitHub repository and place your `shopify.csv` and `walmart.csv` (or `.json`) files there.**
+The original raw data files (.csv), which were loaded into Snowflake, are located in the data/ folder within this repository.
+
 
 ***
 
