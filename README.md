@@ -36,7 +36,7 @@ This project utilizes two primary sales datasets:
 
 ### 📂 Raw Data Files (For Reference/Reproducibility)
 
-The original raw data files (.csv), which were loaded into Snowflake, are located in the data/ folder within this repository.
+The original raw data files, which were loaded into Snowflake, are located in the data/ folder within this repository.
 
 
 ***
