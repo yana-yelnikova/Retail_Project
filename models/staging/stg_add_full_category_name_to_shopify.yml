@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: shopify_orders_with_full_categories # The name of dbt model
+  - name: stg_add_full_category_name_to_shopify # The name of dbt model
     description: "Staging model for Shopify orders, including all raw data and an added full category name."
 
     columns:
@@ -42,7 +42,6 @@ models:
         description: "Quantity of product units in the order."
         tests:
           - not_null
-
 
       - name: WEEK
         description: "Week number in which the order was placed."

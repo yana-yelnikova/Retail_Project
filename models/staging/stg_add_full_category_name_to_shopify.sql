@@ -20,4 +20,4 @@ select
         then 'Fashion'
         else category
     end as full_category_name
-from {{ source("retail_data", "SHOPIFY_ORDERS") }}  -- Ссылка на вашу исходную таблицу Shopify
+from {{ source("retail_data", "SHOPIFY_ORDERS") }}  

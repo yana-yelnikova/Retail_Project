@@ -4,7 +4,7 @@ models:
   - name: shopify_matched_products # Name of dbt model
     description: "An intermediate model filtering Shopify orders to include only matched electronic products (laptops, headphones, smartphones, tablets)."
     columns:
-      # Columns passed from add_full_category_name_to_shopify via SELECT *
+      # Columns passed from stg_add_full_category_name_to_shopify via SELECT *
       - name: ORDER_ID
         description: "Unique identifier for the Shopify order."
         tests:

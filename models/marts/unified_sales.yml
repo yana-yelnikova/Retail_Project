@@ -1,0 +1,97 @@
+version: 2
+
+models:
+  - name: unified_sales
+    description: "A unified view of sales data from both Shopify (online) and Walmart (offline), containing only matched products. This table consolidates transactions for omnichannel analysis."
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for the transaction (ORDER_ID for Shopify, TRANSACTION_ID for Walmart)."
+        tests:
+          - not_null
+
+      - name: product_name
+        description: "Standardized name of the product (e.g., 'Laptop', 'Headphones')."
+        tests:
+          - not_null
+
+      - name: full_category_name
+        description: "Full, human-readable name of the product category (always 'Electronics' for these matched products)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Electronics']
+
+      - name: total_item_revenue
+        description: "Total revenue for this specific item in the transaction (UNIT_PRICE * QUANTITY)."
+        tests:
+          - not_null
+
+      - name: quantity_sold
+        description: "Quantity of product units sold in the transaction."
+        tests:
+          - not_null
+
+      - name: transaction_date
+        description: "Date of the transaction."
+        tests:
+          - not_null
+
+      - name: customer_identifier
+        description: "Customer identifier (email for Shopify, ID for Walmart)."
+        tests:
+          - not_null
+
+      - name: store_id
+        description: "Identifier for the physical store (NULL for online sales)."
+
+      - name: store_location
+        description: "Geographic location of the store (NULL for online sales)."
+
+      - name: sales_channel
+        description: "Sales channel (e.g., 'Online' for Shopify, 'Offline' for Walmart)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Online', 'Offline']
+
+      - name: unit_price
+        description: "Unit price of the product."
+
+      - name: customer_age
+        description: "Age of the customer (only available for Walmart, NULL for Shopify)."
+      - name: customer_gender
+        description: "Gender of the customer (only available for Walmart, NULL for Shopify)."
+      - name: customer_income
+        description: "Income of the customer (only available for Walmart, NULL for Shopify)."
+      - name: customer_loyalty_level
+        description: "Loyalty level of the customer (only available for Walmart, NULL for Shopify)."
+      - name: holiday_indicator
+        description: "Boolean indicating if the transaction occurred during a holiday period (only available for Walmart, NULL for Shopify)."
+      - name: inventory_level
+        description: "Current inventory level for the product (only available for Walmart, NULL for Shopify)."
+      - name: payment_method
+        description: "Method of payment used for the transaction (only available for Walmart, NULL for Shopify)."
+      - name: promotion_applied
+        description: "Boolean indicating if a promotion was applied to the transaction (only available for Walmart, NULL for Shopify)."
+      - name: promotion_type
+        description: "Type of promotion applied (only available for Walmart, NULL for Shopify)."
+      - name: reorder_point
+        description: "Reorder point for inventory management (only available for Walmart, NULL for Shopify)."
+      - name: reorder_quantity
+        description: "Quantity to reorder when reorder point is reached (only available for Walmart, NULL for Shopify)."
+      - name: stockout_indicator
+        description: "Boolean indicating if a stockout occurred (only available for Walmart, NULL for Shopify)."
+      - name: supplier_id
+        description: "Unique identifier for the supplier (only available for Walmart, NULL for Shopify)."
+      - name: supplier_lead_time
+        description: "Lead time from the supplier (only available for Walmart, NULL for Shopify)."
+      - name: weather_conditions
+        description: "Weather conditions at the time of the transaction (only available for Walmart, NULL for Shopify)."
+      - name: weekday_name
+        description: "Day of the week for the transaction (only available for Walmart, NULL for Shopify)."
+      - name: product_sku
+        description: "Product SKU (from Shopify) or Product ID (from Walmart) - a unique product identifier within its respective channel."
+      - name: actual_demand
+        description: "Actual demand for the product (only available for Walmart, NULL for Shopify)."
+      - name: forecasted_demand
+        description: "Forecasted demand for the product (only available for Walmart, NULL for Shopify)."
