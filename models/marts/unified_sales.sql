@@ -1,15 +1,14 @@
 select
     -- Shopify specific fields (mapped to common unified names)
-    order_id as transaction_id,
+    cast(order_id as varchar(255)) as transaction_id,  -- Cast to VARCHAR
     product_name,
-    category as category_abbreviation,
-    full_category_name,  -- Comes directly from 'shopify_matched_products' model
-    total_item_revenue,  -- Calculated in 'shopify_matched_products'
+    full_category_name,
+    total_item_revenue,
     quantity as quantity_sold,
     order_date as transaction_date,
-    customer_email as customer_identifier,
-    null as store_id,  -- Not applicable for online sales
-    null as store_location,  -- Not applicable for online sales
+    cast(customer_email as varchar(255)) as customer_identifier,  -- Cast to VARCHAR
+    null as store_id,
+    null as store_location,
     'Online' as sales_channel,
     price as unit_price,
     null as customer_age,
@@ -28,22 +27,22 @@ select
     null as supplier_lead_time,
     null as weather_conditions,
     null as weekday_name,
-    sku as product_sku  -- Shopify-specific SKU
-
+    cast(sku as varchar(255)) as product_sku,  -- Cast to VARCHAR
+    NULL AS actual_demand, 
+    NULL AS forecasted_demand   
 from {{ ref("shopify_matched_products") }}
 
 union all
 
 select
     -- Walmart specific fields (mapped to common unified names)
-    transaction_id,
+    cast(transaction_id as varchar(255)) as transaction_id,  -- Cast to VARCHAR
     product_name,
-    category_abbreviation,
     full_category_name,
-    total_item_revenue,  -- Calculated in 'walmart_matched_products'
+    total_item_revenue,
     quantity_sold,
     transaction_date,
-    customer_id as customer_identifier,
+    cast(customer_id as varchar(255)) as customer_identifier,  -- Cast to VARCHAR
     store_id,
     store_location,
     'Offline' as sales_channel,
@@ -64,6 +63,8 @@ select
     supplier_lead_time,
     weather_conditions,
     weekday_name,
-    product_id as product_sku
+    cast(product_id as varchar(255)) as product_sku,  -- Cast to VARCHAR
+    actual_demand,
+    forecasted_demand
 
 from {{ ref("walmart_matched_products") }}

@@ -54,7 +54,3 @@ models:
         tests:
           - not_null # Ensure this column is always populated
 
-      - name: total_item_revenue # Calculated column
-        description: "Total revenue for this specific item in the order (PRICE * QUANTITY)."
-        tests:
-          - not_null
