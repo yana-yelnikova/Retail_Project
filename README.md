@@ -6,14 +6,15 @@ This project demonstrates the process of building a centralized data pipeline us
 
 ## 🎯 Business Case
 
-A mid-sized retailer aims to consolidate its online (Shopify) and in-store (Walmart) sales data into a centralized data warehouse. This unification enables:
+A mid-sized retailer faced the challenge of siloed sales data from its online (Shopify) and in-store (Walmart) channels. This project successfully addresses that problem by **building a unified data model** in a centralized data warehouse.
 
-* **Revenue Tracking:** Real-time comparison of online vs. in-store sales performance.
-* **Best-Selling Products:** Identification of top products across all channels for optimized inventory and marketing.
-* **Customer Behavior Analysis:** Understanding cross-channel shopping patterns to tailor marketing strategies.
-* **Operational Efficiency:** Elimination of manual reporting and reduction of data reconciliation errors.
+This unification enables the business to:
 
-The project builds a fully automated data pipeline that ingests, processes, and visualizes omnichannel sales data, empowering data-driven decisions.
+* **Revenue Tracking:** Gain a real-time, consolidated view for comparing online vs. in-store sales performance.
+* **Customer Behavior Analysis:** Analyze cross-channel purchasing patterns to tailor marketing strategies.
+* **Operational Efficiency:** Eliminate manual reporting and reduce data reconciliation errors.
+
+The project demonstrates a fully automated data pipeline that ingests, processes, and prepares omnichannel sales data, empowering data-driven decisions.
 
 ***
 
@@ -21,6 +22,7 @@ The project builds a fully automated data pipeline that ingests, processes, and 
 
 * **Data Transformation:** [dbt (data build tool)](https://www.getdbt.com/)
 * **Data Warehouse:** [Snowflake](https://www.snowflake.com/)
+* **Visualization:** [Looker Studio](https://lookerstudio.google.com/)
 * **Version Control:** Git / GitHub
 
 ***
@@ -96,10 +98,7 @@ The original raw data files, which were loaded into Snowflake, are located in th
 
 ## 📈 Analysis & Insights
 
-Once `unified_sales` is built in Snowflake, you can connect your BI tool to `RETAIL_PROJECT.<YOUR_DBT_SCHEMA>.unified_sales` to generate insights, such as:
 
-* **Omnichannel Revenue Performance:** Track total sales and revenue by `sales_channel`.
-* **Top Products:** Identify best-selling `product_name` and `full_category_name` across all channels.
-* **Channel-Specific Trends:** Analyze `quantity_sold` and `total_item_revenue` over `transaction_date` for `Online` vs. `Offline` sales.
-* **Customer Demographics (Walmart):** Leverage `customer_age`, `customer_gender`, etc., for deeper segmentation within the offline channel.
+Once the summary table `unified_sales` is built in Snowflake, I connected it to Looker for detailed analysis.
+
 
