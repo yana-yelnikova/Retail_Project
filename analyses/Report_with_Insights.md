@@ -21,4 +21,4 @@ Regarding online sales, the highest were observed in August and May, while the l
 
 ### **2. Product Sales Performance Dashboard**
 
-![Product Sales Performance Dashboard](Product%20Sales%20Performance%20Dashboard.png)
+![Product Sales Performance Dashboard](Product_Sales_Performance_Dashboard.png)
