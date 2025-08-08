@@ -96,13 +96,12 @@ The original raw data files, which were loaded into Snowflake, are located in th
 
 ***
 
-## 📈 Analysis 
-
-
+## 📈 Analysis & Insights
 Once the summary table `unified_sales` is built in Snowflake, I connected it to Looker for detailed analysis.
 
-***
-## 📈 Insights
+The provided data, after being unified and processed, offers a clear view into key performance areas of the business. The analysis reveals both expected trends and critical discrepancies that require further action.
+
+**[Read the full detailed analysis and dashboard commentary here.](analyses/Report_with_Insights.md)**
 
 The provided data, after being unified and processed, offers a clear view into key performance areas of the business. The analysis reveals both expected trends and critical discrepancies that require further action.
 
