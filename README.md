@@ -72,7 +72,7 @@ The original raw data files, which were loaded into Snowflake, are located in th
     cd your-repo-name
     ```
 2.  **Ensure Raw Data in Snowflake:**
-    * This dbt project expects your raw `SHOPIFY_ORDERS` and `WALMART` tables to be already loaded into your `RETAIL_PROJECT.PUBLIC` schema in Snowflake. (You can use the `.csv` or `.json` files in the `data/` folder as a reference for the data structure if needed for manual loading).
+    * This dbt project expects your raw `SHOPIFY_ORDERS` and `WALMART` tables to be already loaded into your `RETAIL_PROJECT.PUBLIC` schema in Snowflake.
 3.  **Configure dbt:**
     * Ensure you have dbt Core (`pip install dbt-snowflake`) or dbt Cloud set up.
     * Update your `~/.dbt/profiles.yml` (for dbt Core) or your dbt Cloud connection settings with your Snowflake credentials (Account, User, Password/Key, Role, Warehouse, Database, Schema). **Do NOT commit `profiles.yml` to Git if it contains sensitive credentials.**
