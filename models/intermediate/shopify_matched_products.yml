@@ -1,15 +1,15 @@
 version: 2
 
 models:
-  - name: shopify_orders_with_full_categories # The name of dbt model
-    description: "Staging model for Shopify orders, including all raw data and an added full category name."
-
+  - name: shopify_matched_products # Name of dbt model
+    description: "An intermediate model filtering Shopify orders to include only matched electronic products (laptops, headphones, smartphones, tablets)."
     columns:
+      # Columns passed from stg_add_full_category_name_to_shopify via SELECT *
       - name: ORDER_ID
         description: "Unique identifier for the Shopify order."
         tests:
-          - unique
           - not_null
+          - unique
 
       - name: SKU
         description: "Stock Keeping Unit (SKU) identifier for the product."
@@ -18,20 +18,19 @@ models:
 
       - name: PRODUCT_NAME
         description: "Name of the product."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Laptop", "Headphones", "Smartphone", "Tablet"] # Ensures only these products are present
 
       - name: CATEGORY
-        description: "Original abbreviated product category code (e.g., 'ELEC', 'SPRT')."
+        description: "Original abbreviated product category code (e.g., 'ELEC')."
 
       - name: CHANNEL
         description: "Sales channel (e.g., 'Online')."
 
       - name: CUSTOMER_EMAIL
         description: "Customer's email address."
-
-      - name: ORDER_DATE
-        description: "Date when the order was placed."
-        tests:
-          - not_null
 
       - name: PRICE
         description: "Unit price of the product in the order."
@@ -43,6 +42,10 @@ models:
         tests:
           - not_null
 
+      - name: ORDER_DATE
+        description: "Date when the order was placed."
+        tests:
+          - not_null
 
       - name: WEEK
         description: "Week number in which the order was placed."
@@ -50,12 +53,15 @@ models:
       - name: YEAR
         description: "Year in which the order was placed."
 
-      - name: full_category_name # New column
-        description: "Full, human-readable name of the product category, derived from the abbreviated code (e.g., 'Electronics', 'Sports')."
+      - name: full_category_name # Column added in the previous model
+        description: "Full, human-readable name of the product category (e.g., 'Electronics')."
         tests:
-          - not_null # Ensure this column is always populated
+          - not_null
+          - accepted_values:
+              values: ["Electronics"] # If all these products belong to Electronics
 
-      - name: total_item_revenue # Calculated column
+      # New calculated column
+      - name: total_item_revenue
         description: "Total revenue for this specific item in the order (PRICE * QUANTITY)."
         tests:
           - not_null
