@@ -91,21 +91,3 @@ The provided data, after being unified and processed, offers a clear view into k
 
 **[Read the full detailed analysis and dashboard commentary here.](analyses/Report_with_Insights.md)**
 
-
-### Key Insights
-
-* **Significant Revenue Discrepancy:** Despite nearly identical unit sales in online (7.4k units) and offline (7.3k units) channels from January to September 2024, offline revenue ($7.5M) is over 6 times higher than online revenue ($1.2M).
-* **Pricing is the Primary Factor:** A deeper analysis shows that this vast difference in revenue is caused by a significant price discrepancy. The average price of offline sales is approximately $1000 per unit, while the average online price is only around $155 per unit.
-* **Mixed Monthly Trends:** Offline sales peaked in March and August, while online sales peaked in August and May.
-* **Operational Variance in Offline Stores:** While sales at a city level are homogeneous, there is a substantial performance gap between individual stores. The top-performing store (ID 1 in New York) generated over 3x the profit of the lowest-performing store (ID 16 in New York), indicating a significant difference in efficiency.
-* **Stable Customer Behavior:** The average check and sales by day of the week are highly stable and consistent for offline sales, showing minimal changes on holidays (a mere 3% increase) and across different weekdays.
-
-### Recommendations & Next Steps
-
-Based on these insights, we recommend the following strategic steps:
-
-1.  **Investigate Pricing Strategy:** Analyze the reasons behind the vast price difference between online and offline channels. Determine if this gap is intentional and sustainable, or if a pricing adjustment is needed to optimize revenue.
-2.  **Optimize Store Performance:** Conduct a detailed analysis of the top-performing store (ID 1) versus the lowest-performing store (ID 16) to identify best practices, operational differences, or external factors that contribute to such a wide performance gap.
-3.  **Evaluate Price Impact:** Explore whether raising online prices to a point between the current online and offline averages would increase revenue without significantly reducing unit sales.
-4.  **Monitor Monthly Trends:** Use the prepared dashboard to continuously monitor monthly sales trends and identify the factors behind the monthly peaks and dips.
-
